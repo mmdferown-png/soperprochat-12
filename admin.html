@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>پنل مدیریت | پرو چت</title>
 <style>
 :root { --gold:#d4af37; --gold2:#f5d77a; --gold-d:#8a6d12; --bg:#050505; --panel:#101010; --panel2:#171717; --line:#2a2410; --txt:#f3ead0; --mut:#9a9078; --danger:#e5484d; --ok:#2fd18b; }
@@ -15,8 +16,6 @@ button { font-family:inherit; cursor:pointer; border:0; color:inherit; backgroun
 input, select, textarea { font-family:inherit; color:var(--txt); }
 .hidden { display:none!important; }
 .wrap { max-width:700px; margin:0 auto; padding:12px; }
-
-/* ورود */
 #login { position:fixed; inset:0; display:grid; place-items:center; padding:20px; z-index:50; }
 .lcard { width:min(400px,100%); background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:30px 24px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
 .logo { font-size:2rem; font-weight:800; text-align:center; background: linear-gradient(135deg,#f5d77a,#d4af37); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:6px; }
@@ -30,29 +29,21 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
 .btn.ghost { background:transparent; color:var(--gold); border:1px solid var(--gold-d); }
 .btn.danger { background:transparent; color:var(--danger); border:1px solid var(--danger); }
 .err { color:var(--danger); font-size:.85rem; min-height:1.2em; margin:4px 0 10px; text-align:center; }
-
-/* هدر */
 .head { display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--panel); border-bottom:1px solid var(--line); border-radius:16px; margin-bottom:12px; }
 .head b { flex:1; font-size:1.05rem; color:var(--gold2); }
 .head .av { width:36px; height:36px; border-radius:50%; background:var(--panel2); border:2px solid var(--gold-d); display:grid; place-items:center; color:var(--gold); font-weight:800; overflow:hidden; }
 .head .av img { width:100%; height:100%; object-fit:cover; }
 .icon { width:36px; height:36px; border-radius:10px; display:grid; place-items:center; color:var(--gold); font-size:1.1rem; }
 .icon:hover { background:var(--panel2); }
-
-/* تب‌ها */
 .tabs { display:flex; gap:6px; overflow-x:auto; margin-bottom:12px; padding-bottom:2px; scrollbar-width:none; }
 .tabs::-webkit-scrollbar { display:none; }
 .tabs button { flex:none; padding:9px 14px; border-radius:12px; background:var(--panel2); border:1px solid var(--line); font-weight:700; font-size:.85rem; color:var(--mut); }
 .tabs button.on { border-color:var(--gold); background:#2b2208; color:var(--gold2); }
-
-/* کارت‌ها */
 .card { background:rgba(26,15,46,.85); border:1px solid var(--line); border-radius:16px; padding:14px; margin-bottom:10px; backdrop-filter: blur(10px); }
 .stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
 .stat { background:rgba(26,15,46,.85); border:1px solid var(--line); border-radius:14px; padding:12px; text-align:center; }
 .stat b { display:block; font-size:1.5rem; color:var(--gold2); margin-bottom:2px; }
 .stat small { color:var(--mut); font-size:.75rem; }
-
-/* کاربر */
 .urow { display:flex; align-items:center; gap:10px; padding:10px; background:rgba(26,15,46,.85); border:1px solid var(--line); border-radius:14px; margin-bottom:8px; width:100%; text-align:start; }
 .urow .av { width:40px; height:40px; border-radius:50%; background:var(--panel2); border:2px solid var(--gold-d); display:grid; place-items:center; color:var(--gold); font-weight:800; overflow:hidden; flex-shrink:0; }
 .urow .av img { width:100%; height:100%; object-fit:cover; }
@@ -65,8 +56,6 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
 .tag.mod { background:#2fd18b; color:#04210f; }
 .tag.ban { background:#e5484d; color:#fff; }
 .tag.mute { background:#ffc83d; color:#3a2800; }
-
-/* مودال */
 .modal { position:fixed; inset:0; background:rgba(0,0,0,.75); display:grid; place-items:center; z-index:80; padding:16px; }
 .modal.hidden { display:none; }
 .mcard { width:min(480px,100%); max-height:90vh; overflow:auto; background:var(--panel); border:1px solid var(--gold-d); border-radius:20px; padding:22px; text-align:center; }
@@ -74,8 +63,6 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
 .acts2 { display:grid; gap:8px; margin-top:14px; }
 .mgrid { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:10px; }
 .mgrid button { padding:10px; border-radius:12px; background:var(--panel2); border:1px solid var(--line); font-weight:700; font-size:.82rem; }
-
-/* لیست سوالات */
 .qrow { background:rgba(26,15,46,.85); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:8px; }
 .qrow .q { font-weight:700; margin-bottom:6px; font-size:.95rem; line-height:1.6; }
 .qrow .opts { display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; color:var(--mut); margin-bottom:6px; }
@@ -84,11 +71,13 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
 .qrow .meta { display:flex; justify-content:space-between; align-items:center; font-size:.75rem; color:var(--mut); }
 .qrow .actions { display:flex; gap:6px; margin-top:8px; }
 .qrow .actions button { padding:6px 12px; border-radius:10px; background:var(--panel2); border:1px solid var(--line); font-size:.78rem; font-weight:700; }
-
 .empty { text-align:center; color:var(--mut); padding:30px 10px; line-height:2; }
 .toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--panel); border:1px solid var(--gold-d); padding:10px 18px; border-radius:12px; z-index:99; font-size:.9rem; max-width:90vw; }
-
 @media (min-width: 620px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+
+/* دکمه خودتخریبی */
+#btnDestroy { color:#e5484d !important; font-size:1.3rem; }
+#btnDestroy:hover { background:rgba(229,72,77,.15) !important; }
 </style>
 </head>
 <body>
@@ -98,11 +87,12 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
 <div id="login">
   <div class="lcard">
     <div class="logo">👑 پنل مدیریت</div>
-    <p class="sub">فقط برای سازنده (hakem)</p>
+    <p class="sub">فقط برای سازنده</p>
     <div class="field"><label>آیدی</label><input id="inId" dir="ltr" placeholder="hakem"></div>
     <div class="field"><label>رمز عبور</label><input id="inPass" type="password" dir="ltr"></div>
     <div class="err" id="err"></div>
     <button class="btn" id="btnLogin">ورود به پنل</button>
+    <p style="color:var(--mut);font-size:.75rem;text-align:center;margin-top:12px;line-height:1.8">🔒 این پنل با UID ادمین محافظت می‌شود</p>
   </div>
 </div>
 
@@ -113,6 +103,7 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
       <div class="av" id="meAv">👑</div>
       <b>پنل مدیریت</b>
       <button class="icon" id="btnRefresh" title="رفرش">🔄</button>
+      <button class="icon" id="btnDestroy" title="پاک‌سازی اضطراری">💣</button>
       <button class="icon" id="btnOut" title="خروج">⏻</button>
     </div>
 
@@ -123,6 +114,7 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
       <button data-t="submissions">📩 پیشنهادها</button>
       <button data-t="photos">🖼 عکس‌ها</button>
       <button data-t="bot">🤖 ربات</button>
+      <button data-t="logs">📜 لاگ‌ها</button>
     </div>
 
     <div id="body"></div>
@@ -132,7 +124,15 @@ input, select, textarea { font-family:inherit; color:var(--txt); }
 <div id="modal" class="modal hidden"><div class="mcard" id="modalCard"></div></div>
 
 <script type="module">
-/* ============ فایربیس ============ */
+/* ═══════════════════════════════════════════
+   🔒 تنظیمات امنیتی
+   ═══════════════════════════════════════════ */
+const ADMIN_UID = "zwuk7PIasefP0tHTFu5hh4vbqoo1";
+const ADMIN_HANDLE = "hakem";
+
+/* ═══════════════════════════════════════════
+   فایربیس
+   ═══════════════════════════════════════════ */
 const firebaseConfig = {
   apiKey: "AIzaSyA493Bu5c0KulCIJzobNvXmQDsw5AkkuJI",
   authDomain: "soperprochat-12.firebaseapp.com",
@@ -141,12 +141,11 @@ const firebaseConfig = {
   messagingSenderId: "542316141846",
   appId: "1:542316141846:web:65ff7dd0ac182447aa4437"
 };
-const ADMIN_ID = "hakem";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, setPersistence, indexedDBLocalPersistence, browserLocalPersistence }
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, setPersistence, indexedDBLocalPersistence, browserLocalPersistence, EmailAuthProvider, reauthenticateWithCredential }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, initializeFirestore, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, addDoc, collection, query, where, orderBy, limit, onSnapshot, serverTimestamp, increment, arrayUnion, arrayRemove, runTransaction }
+import { getFirestore, initializeFirestore, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, addDoc, collection, query, where, orderBy, limit, onSnapshot, serverTimestamp, increment, arrayUnion, arrayRemove }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const $ = id => document.getElementById(id);
@@ -162,43 +161,214 @@ const toast = t => { const d = document.createElement('div'); d.className = 'toa
 const avatar = u => u?.photo ? `<img src="${u.photo}" alt="">` : esc((u?.name || '?').charAt(0));
 const emailOf = h => `${h}@prochat.app`;
 
-/* ============ حالت ============ */
-let me = null, users = {}, questions = [], subs = [], photos = [], botCfg = {}, unsubs = [];
+/* ═══════════════════════════════════════════
+   📜 لاگ امنیتی
+   ═══════════════════════════════════════════ */
+async function logAction(action, details = {}) {
+  try {
+    await addDoc(collection(db, 'adminLogs'), {
+      action, details,
+      adminUid: me?.uid || 'unknown',
+      adminName: me?.name || 'unknown',
+      at: serverTimestamp(),
+      userAgent: navigator.userAgent.slice(0, 100)
+    });
+  } catch (e) {}
+}
 
-/* ============ ورود ============ */
+/* ═══════════════════════════════════════════
+   🛡️ چک امنیتی
+   ═══════════════════════════════════════════ */
+async function verifyAdmin(user) {
+  if (!user || !user.uid) return { ok: false, reason: 'no-user' };
+  if (user.uid !== ADMIN_UID) return { ok: false, reason: 'not-admin-uid' };
+  try {
+    const snap = await getDoc(doc(db, 'users', user.uid));
+    if (!snap.exists()) return { ok: false, reason: 'no-profile' };
+    const data = snap.data();
+    if (data.banned) return { ok: false, reason: 'banned' };
+    if (data.handle !== ADMIN_HANDLE) return { ok: false, reason: 'handle-mismatch' };
+    return { ok: true, profile: data };
+  } catch (e) {
+    return { ok: false, reason: 'firestore-error' };
+  }
+}
+
+/* ═══════════════════════════════════════════
+   ورود
+   ═══════════════════════════════════════════ */
 $('btnLogin').onclick = async () => {
   const h = $('inId').value.trim().toLowerCase(), pass = $('inPass').value;
   $('err').textContent = '';
-  if (h !== ADMIN_ID) return $('err').textContent = '❌ فقط سازنده می‌تونه وارد شه';
+  if (h !== ADMIN_HANDLE) { $('err').textContent = '❌ دسترسی غیرمجاز'; await logAction('login-rejected', { reason: 'wrong-handle' }); return; }
+  if (pass.length < 6) { $('err').textContent = '❌ رمز عبور نامعتبر'; return; }
   $('btnLogin').disabled = true;
   try {
     const cred = await signInWithEmailAndPassword(auth, emailOf(h), pass);
-    const snap = await getDoc(doc(db, 'users', cred.user.uid));
-    if (!snap.exists() || snap.data().handle !== ADMIN_ID) {
-      await signOut(auth);
-      return $('err').textContent = '❌ شما ادمین نیستید';
-    }
+    const check = await verifyAdmin(cred.user);
+    if (!check.ok) { await logAction('login-failed', { reason: check.reason }); await signOut(auth); $('err').textContent = '❌ دسترسی غیرمجاز'; $('btnLogin').disabled = false; return; }
+    await logAction('login-success');
   } catch (e) {
-    $('err').textContent = e.code === 'auth/invalid-credential' ? '❌ آیدی یا رمز اشتباهه' : '❌ خطا: ' + e.code;
+    const msg = {
+      'auth/invalid-credential': '❌ آیدی یا رمز اشتباهه',
+      'auth/too-many-requests': '❌ تلاش زیاد. چند دقیقه صبر کن',
+      'auth/network-request-failed': '❌ اینترنت رو چک کن'
+    }[e.code] || '❌ خطا: ' + e.code;
+    $('err').textContent = msg;
+    await logAction('login-error', { code: e.code });
   }
   $('btnLogin').disabled = false;
 };
+$('inPass').addEventListener('keydown', e => { if (e.key === 'Enter') $('btnLogin').click(); });
 
 onAuthStateChanged(auth, async u => {
-  if (!u) return $('login').classList.remove('hidden'), $('panel').classList.add('hidden');
-  const snap = await getDoc(doc(db, 'users', u.uid));
-  if (!snap.exists() || snap.data().handle !== ADMIN_ID) { await signOut(auth); return; }
-  me = snap.data();
+  if (!u) { $('login').classList.remove('hidden'); $('panel').classList.add('hidden'); return; }
+  const check = await verifyAdmin(u);
+  if (!check.ok) { await logAction('session-rejected', { reason: check.reason }); await signOut(auth); $('err').textContent = '❌ دسترسی غیرمجاز'; return; }
+  me = check.profile;
   $('login').classList.add('hidden');
   $('panel').classList.remove('hidden');
   $('meAv').innerHTML = avatar(me);
   startAll();
 });
 
-$('btnOut').onclick = () => signOut(auth);
-$('btnRefresh').onclick = () => { location.reload(); };
+$('btnOut').onclick = async () => { await logAction('logout'); await signOut(auth); };
+$('btnRefresh').onclick = () => location.reload();
 
-/* ============ تب‌ها ============ */
+/* ═══════════════════════════════════════════
+   💣 دکمه‌ی خودتخریبی (پاک‌سازی اضطراری)
+   ═══════════════════════════════════════════ */
+$('btnDestroy').onclick = () => {
+  if (auth.currentUser?.uid !== ADMIN_UID) {
+    toast('❌ دسترسی غیرمجاز');
+    logAction('destroy-blocked');
+    return;
+  }
+  openModal(`
+    <div style="font-size:3.5rem">💣</div>
+    <h3 style="color:#e5484d">پاک‌سازی اضطراری</h3>
+    <p style="color:var(--mut);line-height:2;font-size:.88rem;margin:10px 0">
+      این عملیات <b style="color:#e5484d">غیرقابل بازگشت</b> است!<br>
+      همه‌ی کاربران، پیام‌ها، کارت‌ها، سوالات، استوری‌ها و... پاک می‌شوند.<br>
+      <b>فقط در صورت هک شدن استفاده کن!</b>
+    </p>
+    <div class="field" style="text-align:start">
+      <label>برای تأیید، رمز عبور ادمین رو وارد کن</label>
+      <input id="dPass" type="password" dir="ltr" placeholder="رمز عبور" style="width:100%;background:var(--panel2);border:1px solid var(--danger);border-radius:12px;padding:11px;color:var(--txt)">
+    </div>
+    <div style="color:#e5484d;font-size:.82rem;line-height:1.8;margin:6px 0" id="dErr"></div>
+    <div class="acts2">
+      <button class="btn" id="dGo" style="background:linear-gradient(135deg,#ff6b6b,#e5484d);color:#fff">💣 بله، پاک کن</button>
+      <button class="btn ghost" id="dNo">انصراف</button>
+    </div>
+  `);
+  $('dNo').onclick = closeModal;
+  $('dGo').onclick = async () => {
+    const pass = $('dPass').value, err = $('dErr');
+    err.textContent = '';
+    if (!pass) { err.textContent = '❌ رمز عبور رو وارد کن'; return; }
+    $('dGo').disabled = true;
+    $('dGo').textContent = '⏳ در حال تأیید...';
+    try {
+      const cred = EmailAuthProvider.credential(auth.currentUser.email, pass);
+      await reauthenticateWithCredential(auth.currentUser, cred);
+      $('dGo').textContent = '💣 در حال پاک‌سازی...';
+      await logAction('self-destruct-started', { userCount: Object.keys(users).length, questionCount: questions.length }).catch(() => {});
+      
+      const collections = ['users', 'rooms', 'gifts', 'market', 'questions', 'questionSubmissions', 'stories', 'music', 'settings', 'handles', 'groupRequests', 'games', 'stats', 'adminLogs'];
+      let totalDeleted = 0;
+      const errors = [];
+      
+      // پاک کردن کالکشن‌های اصلی
+      for (const colName of collections) {
+        try {
+          $('dGo').textContent = `💣 پاک کردن ${colName}...`;
+          const snap = await getDocs(collection(db, colName));
+          const docs = snap.docs;
+          for (let i = 0; i < docs.length; i += 400) {
+            const batch = docs.slice(i, i + 400);
+            await Promise.all(batch.map(d => deleteDoc(d.ref)));
+            totalDeleted += batch.length;
+          }
+        } catch (e) { errors.push(colName + ': ' + e.code); }
+      }
+      
+      // پاک کردن پیام‌های داخل rooms
+      try {
+        $('dGo').textContent = '💣 پاک کردن پیام‌ها...';
+        const roomsSnap = await getDocs(collection(db, 'rooms'));
+        for (const roomDoc of roomsSnap.docs) {
+          try {
+            const msgsSnap = await getDocs(collection(db, 'rooms', roomDoc.id, 'msgs'));
+            for (let i = 0; i < msgsSnap.docs.length; i += 400) {
+              const batch = msgsSnap.docs.slice(i, i + 400);
+              await Promise.all(batch.map(d => deleteDoc(d.ref)));
+              totalDeleted += batch.length;
+            }
+          } catch (e) {}
+        }
+      } catch (e) { errors.push('msgs: ' + e.code); }
+      
+      // پاک کردن زیرمجموعه‌های استوری
+      try {
+        $('dGo').textContent = '💣 پاک کردن استوری‌ها...';
+        const storiesSnap = await getDocs(collection(db, 'stories'));
+        for (const storyDoc of storiesSnap.docs) {
+          for (const sub of ['parts', 'views']) {
+            try {
+              const subSnap = await getDocs(collection(db, 'stories', storyDoc.id, sub));
+              for (const d of subSnap.docs) { await deleteDoc(d.ref); totalDeleted++; }
+            } catch (e) {}
+          }
+        }
+      } catch (e) { errors.push('stories-sub: ' + e.code); }
+      
+      // پاک کردن زیرمجموعه‌های users (sessions)
+      try {
+        $('dGo').textContent = '💣 پاک کردن نشست‌ها...';
+        const usersSnap = await getDocs(collection(db, 'users'));
+        for (const userDoc of usersSnap.docs) {
+          try {
+            const sessSnap = await getDocs(collection(db, 'users', userDoc.id, 'sessions'));
+            for (const d of sessSnap.docs) { await deleteDoc(d.ref); totalDeleted++; }
+          } catch (e) {}
+        }
+      } catch (e) {}
+      
+      // پاک کردن زیرمجموعه‌های games/quiz/rooms
+      try {
+        const quizSnap = await getDocs(collection(db, 'games', 'quiz', 'rooms'));
+        for (const d of quizSnap.docs) { await deleteDoc(d.ref); totalDeleted++; }
+      } catch (e) {}
+      
+      if (errors.length > 0) {
+        $('dErr').textContent = '⚠️ بعضی بخش‌ها پاک نشدند:\n' + errors.slice(0, 3).join('\n');
+        $('dGo').textContent = '❌ خطا';
+        $('dGo').disabled = false;
+      } else {
+        $('dErr').style.color = '#2fd18b';
+        $('dErr').textContent = `✅ ${fa(totalDeleted)} سند پاک شد. خروج از حساب...`;
+        $('dGo').textContent = '✅ پاک شد';
+        setTimeout(async () => { await signOut(auth); location.reload(); }, 3000);
+      }
+    } catch (e) {
+      if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
+        $('dErr').textContent = '❌ رمز عبور اشتباهه';
+      } else if (e.code === 'auth/too-many-requests') {
+        $('dErr').textContent = '❌ تلاش زیاد. چند دقیقه صبر کن';
+      } else {
+        $('dErr').textContent = '❌ خطا: ' + (e.code || e.message);
+      }
+      $('dGo').disabled = false;
+      $('dGo').textContent = '💣 بله، پاک کن';
+      logAction('self-destruct-failed', { error: e.code });
+    }
+  };
+};
+
+/* ═══════════════════════════════════════════
+   تب‌ها
+   ═══════════════════════════════════════════ */
 let tab = 'dash';
 $('tabs').onclick = e => {
   const b = e.target.closest('[data-t]'); if (!b) return;
@@ -206,33 +376,26 @@ $('tabs').onclick = e => {
   $('tabs').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
   render();
 };
-
 function openModal(html) { $('modalCard').innerHTML = html; $('modal').classList.remove('hidden'); }
 function closeModal() { $('modal').classList.add('hidden'); }
 $('modal').onclick = e => { if (e.target === $('modal')) closeModal(); };
 
-/* ============ شروع ============ */
+/* ═══════════════════════════════════════════
+   شروع
+   ═══════════════════════════════════════════ */
+let unsubs = [], users = {}, questions = [], subs = [], logs = [], botCfg = {};
 function startAll() {
   unsubs.forEach(f => f()); unsubs = [];
-  unsubs.push(onSnapshot(collection(db, 'users'), s => {
-    users = {}; s.forEach(d => users[d.id] = d.data());
-    render();
-  }));
-  unsubs.push(onSnapshot(collection(db, 'questions'), s => {
-    questions = s.docs.map(d => ({ id: d.id, ...d.data() }));
-    render();
-  }));
-  unsubs.push(onSnapshot(collection(db, 'questionSubmissions'), s => {
-    subs = s.docs.map(d => ({ id: d.id, ...d.data() }));
-    render();
-  }));
-  unsubs.push(onSnapshot(doc(db, 'settings', 'bot'), s => {
-    botCfg = s.exists() ? s.data() : {};
-    render();
-  }));
+  unsubs.push(onSnapshot(collection(db, 'users'), s => { users = {}; s.forEach(d => users[d.id] = d.data()); render(); }, () => toast('خطا در بارگذاری کاربران')));
+  unsubs.push(onSnapshot(collection(db, 'questions'), s => { questions = s.docs.map(d => ({ id: d.id, ...d.data() })); render(); }, () => {}));
+  unsubs.push(onSnapshot(collection(db, 'questionSubmissions'), s => { subs = s.docs.map(d => ({ id: d.id, ...d.data() })); render(); }, () => {}));
+  unsubs.push(onSnapshot(doc(db, 'settings', 'bot'), s => { botCfg = s.exists() ? s.data() : {}; render(); }, () => {}));
+  unsubs.push(onSnapshot(query(collection(db, 'adminLogs'), orderBy('at', 'desc'), limit(100)), s => { logs = s.docs.map(d => ({ id: d.id, ...d.data() })); if (tab === 'logs') render(); }, () => {}));
 }
 
-/* ============ رندر ============ */
+/* ═══════════════════════════════════════════
+   رندر
+   ═══════════════════════════════════════════ */
 function render() {
   if (!me) return;
   if (tab === 'dash') renderDash();
@@ -241,6 +404,7 @@ function render() {
   else if (tab === 'submissions') renderSubs();
   else if (tab === 'photos') renderPhotos();
   else if (tab === 'bot') renderBot();
+  else if (tab === 'logs') renderLogs();
 }
 
 /* ---------- داشبورد ---------- */
@@ -250,16 +414,15 @@ function renderDash() {
   const totalMsgs = all.reduce((a, u) => a + (u.msgCount || 0), 0);
   const totalCoins = all.reduce((a, u) => a + (u.bonus || 0), 0);
   const withCards = all.filter(u => (u.inventory || []).length > 0).length;
-  const qCount = questions.length;
   $('body').innerHTML = `
     <div class="stats">
       <div class="stat"><b>${fa(all.length)}</b><small>👥 کاربران</small></div>
       <div class="stat"><b>${fa(online.length)}</b><small>🟢 آنلاین</small></div>
       <div class="stat"><b>${fa(totalMsgs)}</b><small>💬 پیام‌ها</small></div>
-      <div class="stat"><b>${fa(qCount)}</b><small>📝 سوالات</small></div>
+      <div class="stat"><b>${fa(questions.length)}</b><small>📝 سوالات</small></div>
     </div>
     <div class="stats">
-      <div class="stat"><b>${fa(totalCoins)}</b><small>🪙 سکه‌های هدیه</small></div>
+      <div class="stat"><b>${fa(totalCoins)}</b><small>🪙 سکه هدیه</small></div>
       <div class="stat"><b>${fa(withCards)}</b><small>🎴 دارای کارت</small></div>
       <div class="stat"><b>${fa(subs.filter(s => s.status === 'pending').length)}</b><small>📩 پیشنهاد سوال</small></div>
       <div class="stat"><b>${fa(all.filter(u => u.vip).length)}</b><small>⭐ VIP</small></div>
@@ -272,7 +435,14 @@ function renderDash() {
           <div class="nm"><b>${esc(u.name)}</b><small>@${esc(u.handle)} • ${fa(u.msgCount||0)} پیام</small></div>
         </div>`).join('') || '<p class="empty">کاربری نیست</p>'}
     </div>
-  `;
+    <div class="card">
+      <b style="color:var(--gold2)">🛡️ امنیت</b>
+      <p style="color:var(--mut);font-size:.82rem;margin-top:8px;line-height:1.9">
+        ✅ ادمین با UID محافظت می‌شود<br>
+        ✅ تمام عملیات لاگ می‌شود<br>
+        ✅ دکمه‌ی 💣 در هدر برای پاک‌سازی اضطراری
+      </p>
+    </div>`;
 }
 
 /* ---------- کاربران ---------- */
@@ -282,7 +452,7 @@ function renderUsers() {
     .sort((a,b) => (b.vip?1:0)-(a.vip?1:0) || (a.name||'').localeCompare(b.name||'','fa'));
   $('body').innerHTML = `
     <div class="card">
-      <input id="uSearch" placeholder="🔍 جستجوی کاربر (نام یا آیدی)" value="${esc(userSearch)}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:10px">
+      <input id="uSearch" placeholder="🔍 جستجوی کاربر" value="${esc(userSearch)}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:10px;color:var(--txt)">
       <div style="color:var(--mut);font-size:.82rem;margin-bottom:8px">${fa(all.length)} کاربر</div>
       ${all.map(u => `
         <button class="urow" data-uid="${u.uid}">
@@ -318,14 +488,11 @@ function userDetail(uid) {
     </div>`);
   const mc = $('modalCard');
   mc.querySelector('[data-a="close"]').onclick = closeModal;
-  mc.querySelector('[data-a="vip"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{vip:!u.vip}); toast(u.vip?'VIP برداشته شد':'⭐ VIP داده شد'); closeModal(); };
-  mc.querySelector('[data-a="mod"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{mod:!u.mod}); toast(u.mod?'ناظری لغو شد':'🛡 ناظر شد'); closeModal(); };
-  mc.querySelector('[data-a="ban"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{banned:!u.banned}); toast(u.banned?'رفع مسدودی':'مسدود شد'); closeModal(); };
-  mc.querySelector('[data-a="mute"]').onclick = async () => {
-    const m = (u.mutedUntil||0) > Date.now() ? 0 : Date.now()+3600000;
-    await updateDoc(doc(db,'users',uid),{mutedUntil:m}); toast(m?'🔇 ساکت شد':'🔊 رفع سکوت'); closeModal();
-  };
-  mc.querySelector('[data-a="photo"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{photo:'',photoPending:''}); toast('عکس حذف شد'); closeModal(); };
+  mc.querySelector('[data-a="vip"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{vip:!u.vip}); await logAction('toggle-vip',{targetUid:uid,newValue:!u.vip}); toast(u.vip?'VIP برداشته شد':'⭐ VIP داده شد'); closeModal(); };
+  mc.querySelector('[data-a="mod"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{mod:!u.mod}); await logAction('toggle-mod',{targetUid:uid,newValue:!u.mod}); toast(u.mod?'ناظری لغو شد':'🛡 ناظر شد'); closeModal(); };
+  mc.querySelector('[data-a="ban"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{banned:!u.banned}); await logAction('toggle-ban',{targetUid:uid,newValue:!u.banned}); toast(u.banned?'رفع مسدودی':'مسدود شد'); closeModal(); };
+  mc.querySelector('[data-a="mute"]').onclick = async () => { const m = (u.mutedUntil||0) > Date.now() ? 0 : Date.now()+3600000; await updateDoc(doc(db,'users',uid),{mutedUntil:m}); await logAction('toggle-mute',{targetUid:uid,until:m}); toast(m?'🔇 ساکت شد':'🔊 رفع سکوت'); closeModal(); };
+  mc.querySelector('[data-a="photo"]').onclick = async () => { await updateDoc(doc(db,'users',uid),{photo:'',photoPending:''}); await logAction('delete-photo',{targetUid:uid}); toast('عکس حذف شد'); closeModal(); };
   mc.querySelector('[data-a="coins"]').onclick = () => {
     openModal(`<h3>🪙 هدیه سکه</h3>
       <div class="mgrid">${[100,500,1000,5000].map(n=>`<button data-c="${n}">+${fa(n)}</button>`).join('')}</div>
@@ -333,6 +500,7 @@ function userDetail(uid) {
     $('mClose').onclick = closeModal;
     $('modalCard').querySelectorAll('[data-c]').forEach(b => b.onclick = async () => {
       await updateDoc(doc(db,'users',uid),{bonus:increment(+b.dataset.c)});
+      await logAction('gift-coins',{targetUid:uid,amount:+b.dataset.c});
       toast(`+${fa(+b.dataset.c)} سکه`); closeModal();
     });
   };
@@ -345,6 +513,7 @@ function userDetail(uid) {
     $('modalCard').querySelectorAll('[data-g]').forEach(b => b.onclick = async () => {
       const id = +b.dataset.g;
       await updateDoc(doc(db,'users',uid),{inventory:arrayUnion(id)});
+      await logAction('gift-card',{targetUid:uid,cardId:id});
       toast(`🎁 کارت ${fa(id)} هدیه داده شد`); closeModal();
     });
   };
@@ -355,16 +524,14 @@ let qCat = 'all', qSearch = '';
 function renderQuestions() {
   const list = questions.filter(q => (qCat==='all'||q.category===qCat) && (!qSearch||(q.question||'').toLowerCase().includes(qSearch)));
   $('body').innerHTML = `
-    <div class="card">
-      <button class="btn" id="qAdd">➕ افزودن سوال جدید</button>
-    </div>
+    <div class="card"><button class="btn" id="qAdd">➕ افزودن سوال جدید</button></div>
     <div class="tabs">
       <button data-qc="all" class="${qCat==='all'?'on':''}">همه (${fa(questions.length)})</button>
       <button data-qc="football" class="${qCat==='football'?'on':''}">⚽ فوتبال</button>
       <button data-qc="cinema" class="${qCat==='cinema'?'on':''}">🎬 سینما</button>
       <button data-qc="countries" class="${qCat==='countries'?'on':''}">🌍 کشورها</button>
     </div>
-    <input id="qSearch" placeholder="🔍 جستجوی سوال" value="${esc(qSearch)}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:10px">
+    <input id="qSearch" placeholder="🔍 جستجوی سوال" value="${esc(qSearch)}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:10px;color:var(--txt)">
     ${list.map(q => `
       <div class="qrow">
         <div class="q">${esc(q.question)}</div>
@@ -383,11 +550,14 @@ function renderQuestions() {
   $('body').querySelectorAll('[data-t]').forEach(b => b.onclick = async () => {
     const q = questions.find(x => x.id === b.dataset.t);
     await updateDoc(doc(db,'questions',q.id),{active:q.active===false});
+    await logAction('toggle-question',{questionId:q.id});
     toast(q.active===false?'✅ فعال شد':'⛔ غیرفعال شد');
   });
   $('body').querySelectorAll('[data-d]').forEach(b => b.onclick = async () => {
     if (!confirm('این سوال حذف شود؟')) return;
-    await deleteDoc(doc(db,'questions',b.dataset.d)); toast('🗑 حذف شد');
+    await deleteDoc(doc(db,'questions',b.dataset.d));
+    await logAction('delete-question',{questionId:b.dataset.d});
+    toast('🗑 حذف شد');
   });
 }
 
@@ -400,7 +570,7 @@ function qForm(q) {
       <option value="countries" ${q?.category==='countries'?'selected':''}>🌍 کشورها</option>
     </select></div>
     <div class="field" style="text-align:start"><label>سوال</label><textarea id="fQ" rows="2" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px;color:var(--txt)">${esc(q?.question||'')}</textarea></div>
-    ${[0,1,2,3].map(i => `<div class="field" style="text-align:start"><label>گزینه ${i+1} ${i===q?.correctIndex?'✅':''}</label><input id="fO${i}" value="${esc(q?.options?.[i]||'')}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px;color:var(--txt)"></div>`).join('')}
+    ${[0,1,2,3].map(i => `<div class="field" style="text-align:start"><label>گزینه ${i+1}</label><input id="fO${i}" value="${esc(q?.options?.[i]||'')}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px;color:var(--txt)"></div>`).join('')}
     <div class="field" style="text-align:start"><label>جواب درست</label><select id="fC" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px;color:var(--txt)">
       ${[0,1,2,3].map(i => `<option value="${i}" ${q?.correctIndex===i?'selected':''}>گزینه ${i+1}</option>`).join('')}
     </select></div>
@@ -419,8 +589,8 @@ function qForm(q) {
     };
     if (!data.question || data.options.some(o => !o)) return toast('❌ همه فیلدها رو پر کن');
     try {
-      if (edit) await updateDoc(doc(db,'questions',q.id), data);
-      else await addDoc(collection(db,'questions'), data);
+      if (edit) { await updateDoc(doc(db,'questions',q.id), data); await logAction('edit-question',{questionId:q.id}); }
+      else { const r = await addDoc(collection(db,'questions'), data); await logAction('add-question',{questionId:r.id}); }
       toast('✅ ذخیره شد'); closeModal();
     } catch (e) { toast('❌ خطا: ' + e.code); }
   };
@@ -430,7 +600,7 @@ function qForm(q) {
 function renderSubs() {
   const list = subs.filter(s => s.status === 'pending').sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0));
   $('body').innerHTML = `
-    <div class="card"><b style="color:var(--gold2)">📩 پیشنهادات در انتظار تأیید (${fa(list.length)})</b></div>
+    <div class="card"><b style="color:var(--gold2)">📩 پیشنهادات (${fa(list.length)})</b></div>
     ${list.map(s => `
       <div class="qrow">
         <div style="color:var(--mut);font-size:.8rem;margin-bottom:6px">از ${esc(s.name||'کاربر')} • ${esc(s.category)}</div>
@@ -444,18 +614,16 @@ function renderSubs() {
   $('body').querySelectorAll('[data-ok]').forEach(b => b.onclick = async () => {
     const s = subs.find(x => x.id === b.dataset.ok); if (!s) return;
     try {
-      await addDoc(collection(db,'questions'), {
-        category: s.category, question: s.question, options: s.options,
-        correctIndex: s.correctIndex, active: true, usageCount: 0,
-        createdAt: serverTimestamp(), createdBy: s.uid
-      });
+      await addDoc(collection(db,'questions'), { category: s.category, question: s.question, options: s.options, correctIndex: s.correctIndex, active: true, usageCount: 0, createdAt: serverTimestamp(), createdBy: s.uid });
       await updateDoc(doc(db,'questionSubmissions',s.id), {status:'approved',reviewedBy:me.uid,reviewedAt:serverTimestamp()});
       await updateDoc(doc(db,'users',s.uid), {bonus: increment(100)});
-      toast('✅ تأیید شد +۱۰۰ سکه به کاربر');
+      await logAction('approve-submission',{submissionId:s.id,userUid:s.uid});
+      toast('✅ تأیید شد');
     } catch (e) { toast('خطا: ' + e.code); }
   });
   $('body').querySelectorAll('[data-no]').forEach(b => b.onclick = async () => {
     await updateDoc(doc(db,'questionSubmissions',b.dataset.no),{status:'rejected',reviewedBy:me.uid,reviewedAt:serverTimestamp()});
+    await logAction('reject-submission',{submissionId:b.dataset.no});
     toast('❌ رد شد');
   });
 }
@@ -464,7 +632,7 @@ function renderSubs() {
 function renderPhotos() {
   const list = Object.values(users).filter(u => u.photoPending);
   $('body').innerHTML = `
-    <div class="card"><b style="color:var(--gold2)">🖼 عکس‌های در انتظار تأیید (${fa(list.length)})</b></div>
+    <div class="card"><b style="color:var(--gold2)">🖼 عکس‌ها (${fa(list.length)})</b></div>
     ${list.map(u => `
       <div class="qrow" style="display:flex;gap:12px;align-items:center">
         <img src="${u.photoPending}" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-d)">
@@ -477,10 +645,12 @@ function renderPhotos() {
   $('body').querySelectorAll('[data-pa]').forEach(b => b.onclick = async () => {
     const u = users[b.dataset.pa];
     await updateDoc(doc(db,'users',u.uid),{photo:u.photoPending,photoPending:''});
+    await logAction('approve-photo',{targetUid:u.uid});
     toast('✅ تأیید شد');
   });
   $('body').querySelectorAll('[data-pr]').forEach(b => b.onclick = async () => {
     await updateDoc(doc(db,'users',b.dataset.pr),{photoPending:'',photoRejected:Date.now()});
+    await logAction('reject-photo',{targetUid:b.dataset.pr});
     toast('❌ رد شد');
   });
 }
@@ -488,8 +658,7 @@ function renderPhotos() {
 /* ---------- ربات ---------- */
 function renderBot() {
   const on = botCfg.on !== false, filter = botCfg.filter !== false, autoMute = botCfg.autoMute !== false, welcome = botCfg.welcome !== false;
-  const words = botCfg.words || [];
-  const replies = botCfg.replies || [];
+  const words = botCfg.words || [], replies = botCfg.replies || [];
   $('body').innerHTML = `
     <div class="card">
       <b style="color:var(--gold2)">🤖 تنظیمات ربات</b>
@@ -503,14 +672,14 @@ function renderBot() {
     <div class="card">
       <b style="color:var(--gold2)">🚫 کلمات ممنوعه</b>
       <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
-        ${words.map((w,i) => `<span style="background:rgba(229,72,77,.15);border:1px solid var(--danger);color:var(--danger);padding:4px 10px;border-radius:999px;font-size:.8rem">${esc(w)} <button data-dw="${i}" style="color:var(--danger);font-weight:800">✕</button></span>`).join('') || '<span style="color:var(--mut);font-size:.85rem">کلمه‌ای اضافه نشده</span>'}
+        ${words.map((w,i) => `<span style="background:rgba(229,72,77,.15);border:1px solid var(--danger);color:var(--danger);padding:4px 10px;border-radius:999px;font-size:.8rem">${esc(w)} <button data-dw="${i}" style="color:var(--danger);font-weight:800">✕</button></span>`).join('') || '<span style="color:var(--mut);font-size:.85rem">کلمه‌ای نیست</span>'}
       </div>
       <div style="display:flex;gap:6px;margin-top:10px"><input id="bW" placeholder="کلمه جدید" style="flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--txt)"><button class="btn" style="width:auto;padding:10px 16px" id="bAddW">افزودن</button></div>
     </div>
     <div class="card">
       <b style="color:var(--gold2)">💬 پاسخ‌های خودکار</b>
       <div style="margin-top:10px">
-        ${replies.map((r,i) => `<div style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);align-items:center"><span style="flex:1;font-size:.85rem">«${esc(r.k)}» ← ${esc(r.v)}</span><button data-dr="${i}" style="color:var(--danger)">✕</button></div>`).join('') || '<span style="color:var(--mut);font-size:.85rem">پاسخی تعریف نشده</span>'}
+        ${replies.map((r,i) => `<div style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);align-items:center"><span style="flex:1;font-size:.85rem">«${esc(r.k)}» ← ${esc(r.v)}</span><button data-dr="${i}" style="color:var(--danger)">✕</button></div>`).join('') || '<span style="color:var(--mut);font-size:.85rem">پاسخی نیست</span>'}
       </div>
       <div style="display:flex;gap:6px;margin-top:10px;flex-direction:column">
         <input id="bK" placeholder="اگر پیام شامل این بود…" style="background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--txt)">
@@ -518,26 +687,48 @@ function renderBot() {
         <button class="btn" id="bAddR">افزودن پاسخ</button>
       </div>
     </div>`;
-  $('body').querySelectorAll('[data-tg]').forEach(b => b.onclick = () => {
+  $('body').querySelectorAll('[data-tg]').forEach(b => b.onclick = async () => {
     const k = b.dataset.tg;
-    setDoc(doc(db,'settings','bot'), {[k]: botCfg[k] === false}, {merge:true});
+    await setDoc(doc(db,'settings','bot'), {[k]: botCfg[k] === false}, {merge:true});
+    await logAction('toggle-bot-setting',{setting:k});
     toast('ذخیره شد');
   });
-  $('body').querySelectorAll('[data-dw]').forEach(b => b.onclick = () => {
-    setDoc(doc(db,'settings','bot'), {words: words.filter((_,i) => i !== +b.dataset.dw)}, {merge:true});
+  $('body').querySelectorAll('[data-dw]').forEach(b => b.onclick = async () => {
+    await setDoc(doc(db,'settings','bot'), {words: words.filter((_,i) => i !== +b.dataset.dw)}, {merge:true});
+    await logAction('remove-bot-word');
   });
-  $('body').querySelectorAll('[data-dr]').forEach(b => b.onclick = () => {
-    setDoc(doc(db,'settings','bot'), {replies: replies.filter((_,i) => i !== +b.dataset.dr)}, {merge:true});
+  $('body').querySelectorAll('[data-dr]').forEach(b => b.onclick = async () => {
+    await setDoc(doc(db,'settings','bot'), {replies: replies.filter((_,i) => i !== +b.dataset.dr)}, {merge:true});
+    await logAction('remove-bot-reply');
   });
-  $('bAddW').onclick = () => {
+  $('bAddW').onclick = async () => {
     const w = $('bW').value.trim(); if (!w) return;
-    setDoc(doc(db,'settings','bot'), {words: [...words, w]}, {merge:true});
+    await setDoc(doc(db,'settings','bot'), {words: [...words, w]}, {merge:true});
+    await logAction('add-bot-word',{word:w});
   };
-  $('bAddR').onclick = () => {
+  $('bAddR').onclick = async () => {
     const k = $('bK').value.trim(), v = $('bV').value.trim();
     if (!k || !v) return toast('هر دو کادر رو پر کن');
-    setDoc(doc(db,'settings','bot'), {replies: [...replies, {k,v}]}, {merge:true});
+    await setDoc(doc(db,'settings','bot'), {replies: [...replies, {k,v}]}, {merge:true});
+    await logAction('add-bot-reply',{key:k});
   };
+}
+
+/* ---------- لاگ‌ها ---------- */
+function renderLogs() {
+  $('body').innerHTML = `
+    <div class="card"><b style="color:var(--gold2)">📜 لاگ‌های امنیتی (${fa(logs.length)})</b>
+      <p style="color:var(--mut);font-size:.8rem;margin-top:6px">آخرین ۱۰۰ عملیات ادمین</p>
+    </div>
+    ${logs.map(l => {
+      const t = l.at?.toDate?.() || new Date();
+      const time = fa(t.toLocaleString('fa-IR'));
+      return `<div class="qrow">
+        <div class="q" style="font-size:.85rem">${esc(l.action)}</div>
+        <div style="color:var(--mut);font-size:.75rem">${time} • ${esc(l.adminName || '')}</div>
+        ${l.details && Object.keys(l.details).length ? `<div style="color:var(--mut);font-size:.72rem;margin-top:4px;direction:ltr">${esc(JSON.stringify(l.details))}</div>` : ''}
+      </div>`;
+    }).join('') || '<p class="empty">لاگی نیست</p>'}`;
 }
 </script>
 </body>
