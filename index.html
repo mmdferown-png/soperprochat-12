@@ -1498,7 +1498,10 @@ async function post(roomId, data) {
     meta.unread = un;
   }
   await setDoc(doc(db, 'rooms', roomId), meta, { merge: true });
-  if (!data.bot) updateDoc(doc(db, 'users', me.uid), { msgCount: increment(1) }).catch(() => {});
+  if (!data.bot) updateDoc(doc(db, 'users', me.uid), {
+  msgCount: increment(1),
+  lastMsgAt: Date.now()
+}).catch(() => {});
 }
 async function sendMsg(extra = {}) {
   const text = extra.text ?? $('inMsg').value.trim();
